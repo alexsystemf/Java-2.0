@@ -1,5 +1,11 @@
 package mainpackage;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 public class Users {
 
 	String name;
@@ -68,10 +74,25 @@ public class Users {
 	}
 	
 	
-	
-	
-	
-	
+	public void Writer(String name,String username,String password,boolean handshake){
+			
+			Writer writer = null;
+		
+			try {
+			    writer = new BufferedWriter(new OutputStreamWriter(
+			          new FileOutputStream("admins.txt"), "utf-8"));
+			    writer.write("name: "+ name);
+			    writer.write("username: "+ username);
+			    writer.write("password: "+ password);
+			    writer.write("handshake: "+ handshake);
+			    
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+			   try {writer.close();} catch (Exception e) {/*ignore*/}
+			}
+		
+	}
 	
 	
 	public static void main(String[] args) {

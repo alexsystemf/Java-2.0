@@ -1,5 +1,11 @@
 package mainpackage;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 
 public class Provoles {
 
@@ -80,6 +86,30 @@ public class Provoles {
 			    }
 	  }
 	
+	
+	public void Writer(String provoliId,String provoliFilm,String provoliCinema,String provoliStartDate,
+			String provoliIsAvailable, String provoliEndDate, String provoliNumberofReservations){
+			
+			Writer writer = null;
+		
+			try {
+			    writer = new BufferedWriter(new OutputStreamWriter(
+			          new FileOutputStream("provoles.txt"), "utf-8"));
+			    writer.write("provoliId: "+ provoliId);
+			    writer.write("provoliFilm: "+ provoliFilm);
+			    writer.write("provoliCinema: "+ provoliCinema);
+			    writer.write("provoliStartDate: "+ provoliStartDate);
+			    writer.write("provoliIsAvailable: "+ provoliIsAvailable);
+			    writer.write("provoliEndDate: "+ provoliEndDate);
+			    writer.write("provoliNumberofReservations: "+ provoliNumberofReservations);
+			    
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+			   try {writer.close();} catch (Exception e) {/*ignore*/}
+			}
+		
+		}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

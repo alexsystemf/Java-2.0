@@ -1,5 +1,11 @@
 package mainpackage;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 
 public class ContentAdmins {
 
@@ -61,6 +67,26 @@ public class ContentAdmins {
 	
 	
 		}
+	
+	public void Writer(String film,String contentAdminId,String contentAdminPass){
+			
+			Writer writer = null;
+		
+			try {
+			    writer = new BufferedWriter(new OutputStreamWriter(
+			          new FileOutputStream("contentadmins.txt"), "utf-8"));
+			    writer.write("film: "+ film);
+			    writer.write("contentAdminId: "+ contentAdminId);
+			    writer.write("contentAdminPass: "+ contentAdminPass);
+			    
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+			   try {writer.close();} catch (Exception e) {/*ignore*/}
+			}
+		
+		}
+	
 
 	public static void main(String[] args) {
 		

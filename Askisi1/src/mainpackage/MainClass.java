@@ -1,7 +1,5 @@
 package mainpackage;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 
 public class MainClass {
 
@@ -19,15 +17,8 @@ public class MainClass {
 	
 	
 	public static void main(String[] args) {
-		String filename = "out.txt";
-		try {
-			PrintWriter outputStream = new PrintWriter(filename);
-			outputStream.println();
-			outputStream.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
+		
+		
+		
 	}
 	}	

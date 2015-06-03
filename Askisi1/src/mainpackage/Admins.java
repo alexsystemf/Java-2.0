@@ -1,5 +1,11 @@
 package mainpackage;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 
 public class Admins {
 
@@ -82,9 +88,32 @@ public class Admins {
 		
 	}
 
+	public void Writer(String userid,String username,String password,String cinema){
+		
+		Writer writer = null;
+	
+		try {
+		    writer = new BufferedWriter(new OutputStreamWriter(
+		          new FileOutputStream("admins.txt"), "utf-8"));
+		    writer.write("userid: "+ userid);
+		    writer.write("username: "+ username);
+		    writer.write("password: "+ password);
+		    writer.write("cinema: "+ cinema);
+		    
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+		   try {writer.close();} catch (Exception e) {/*ignore*/}
+		}
+	
+	}
+	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		
+		
+		
 	}
 
 }
