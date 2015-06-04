@@ -1,5 +1,11 @@
 package mainpackage;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
 
 public class Films {
 
@@ -52,6 +58,26 @@ public class Films {
 	  }
 	
 
+	public void Writer(String filmId,String filmTitle,String filmCategory,String filmDescription){
+			
+			Writer writer = null;
+		
+			try {
+			    writer = new BufferedWriter(new OutputStreamWriter(
+			          new FileOutputStream("films.txt"), "utf-8"));
+			    writer.write("filmId: "+ filmId);
+			    writer.write(" filmTitle: "+ filmTitle);
+			    writer.write(" filmCategory: "+ filmCategory);
+			    writer.write(" filmDescription: "+ filmDescription);
+			    
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+			   try {writer.close();} catch (Exception e) {/*ignore*/}
+			}
+		
+		}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

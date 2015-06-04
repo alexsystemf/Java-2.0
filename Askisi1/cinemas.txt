@@ -1,0 +1,1 @@
+cinemaNumberofSeats: 170cinemaIs3D: NocinemaId: p1306436
