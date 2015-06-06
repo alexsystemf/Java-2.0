@@ -8,7 +8,7 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		
-		//Class definition
+		//Object definition
 		
 		Customers xatzimpalakias = new Customers("Oldeuboi","4/5/1789","Xatzis");
 		

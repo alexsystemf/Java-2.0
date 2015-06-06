@@ -85,6 +85,14 @@ public class Customers {
 		
 		}
 	
+	
+	//search method
+	public void Search(){
+		
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
