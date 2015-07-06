@@ -1,0 +1,50 @@
+CREATE TABLE Cinemas (
+cinemais3D VARCHAR(20) NOT NULL,
+cinemaId VARCHAR(20) NOT NULL,
+CinemaNumberofSeats VARCHAR(20) NOT NULL,
+cinemaName VARCHAR(20) NOT NULL ,
+PRIMARY KEY (cinemaName) 
+);
+
+CREATE TABLE Films (
+filmTitle VARCHAR(20) NOT NULL,
+filmdId VARCHAR(20) NOT NULL,
+filmDescription VARCHAR(50) NOT NULL,
+filmCategory VARCHAR(20) NOT NULL ,
+PRIMARY KEY(filmTitle)
+);
+
+CREATE TABLE Customers (
+customerId VARCHAR(20) NOT NULL,
+reservation DATE NOT NULL,
+film VARCHAR(20) NOT NULL ,
+FOREIGN KEY(film) REFERENCES Films (filmTitle) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE Users (
+name1 VARCHAR(20) NOT NULL,
+username VARCHAR(20) NOT NULL,
+password1 VARCHAR(20) NOT NULL,
+handshake BOOLEAN NOT NULL );
+
+CREATE TABLE ContentAdmins (
+film VARCHAR(20) NOT NULL,
+contentAdminId VARCHAR(20) NOT NULL,
+contentAdminPass VARCHAR(20) NOT NULL ,
+FOREIGN KEY(film) REFERENCES Films (filmTitle) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE Admins (
+userid VARCHAR(20) NOT NULL,
+username VARCHAR(20) NOT NULL,
+password1 VARCHAR(20) NOT NULL,
+cinema VARCHAR(20) NOT NULL );
+
+CREATE TABLE Provoles (
+provoliNumberofReservations INTEGER NOT NULL ,
+provoliCinema VARCHAR(20) NOT NULL,
+provoliFilm VARCHAR(20) NOT NULL,
+provoliId VARCHAR(20) NOT NULL,
+provoliisAvailable VARCHAR(20) NOT NULL,
+provoliStartDate DATE NOT NULL,
+provoliEndDate VARCHAR(20) NOT NULL ,
+FOREIGN KEY(provolifilm) REFERENCES Films (filmTitle) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY(provoliCinema) REFERENCES Cinemas (cinemaName) ON DELETE CASCADE ON UPDATE CASCADE );
